@@ -8,5 +8,5 @@ push:
 
 tag:
 	docker tag `docker images -q frontend` 160.44.200.121:443/otc00000000001000000204/frontend:latest
-	docker tag `docker images -q redisslave:3.0` 160.44.200.121:443/otc00000000001000000204/redisslave:3.0
+	docker tag `docker images -q redisslave` 160.44.200.121:443/otc00000000001000000204/redisslave:3.0
 	docker tag `docker images -q redis:3.0` 160.44.200.121:443/otc00000000001000000204/redis:3.0
