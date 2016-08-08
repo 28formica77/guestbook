@@ -13,8 +13,8 @@ tag:
 
 run:
 	docker run -d --name redis-master redis:3.0
-	docker run -d  --name redis-slave redisslave
-	docker run -d -p 80:80 --link redis-master --link redis-slave --name frontend frontend
+	docker run -d --name redis-slave --link redis-master redisslave
+	docker run -d --name frontend -p 80:80 --link redis-master --link redis-slave frontend
 
 delete:
 	docker rm -f redis-master redis-slave frontend
