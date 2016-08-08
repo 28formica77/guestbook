@@ -10,3 +10,15 @@ tag:
 	docker tag `docker images -q frontend` 160.44.200.121:443/otc00000000001000000204/frontend:latest
 	docker tag `docker images -q redisslave` 160.44.200.121:443/otc00000000001000000204/redisslave:3.0
 	docker tag `docker images -q redis:3.0` 160.44.200.121:443/otc00000000001000000204/redis:3.0
+
+run:
+	docker run -d --name redis-master redis:3.0
+	docker run -d  --name redis-slave redisslave
+	docker run -d -p 80:80 --link redis-master --link redis-slave --name frontend frontend
+
+delete:
+	docker rm -f redis-master redis-slave frontend
+
+purge:
+	docker rmi `docker images -q`
+
