@@ -20,5 +20,8 @@ delete:
 	docker rm -f redis-master redis-slave frontend
 
 purge:
-	docker rmi `docker images -q`
+	docker rmi 160.44.200.121:443/otc00000000001000000204/redisslave:3.0
+	docker rmi 160.44.200.121:443/otc00000000001000000204/redis:3.0
+	docker rmi 160.44.200.121:443/otc00000000001000000204/frontend
+	docker rmi redisslave redis:3.0 frontend php:5-apache
 
